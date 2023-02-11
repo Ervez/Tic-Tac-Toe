@@ -11,32 +11,35 @@ body{
     justify-content: center;
     height: 100vh;
     font-family: sans-serif;
-    .container{
-        height: 600px;
-        width: 600px;
-        background-color: red;
-        position: relative;
+    background-color: #fff;
         .board{
-            width: 306px;
-            background-color: #f0f0f0;
+            width: 350px;
+            background-color: 		#eeeeee;
             grid-template-columns: repeat(3, 1fr);
             grid-template-rows: repeat(3, 100px);
             display: grid;
             grid-gap: 3px;
             border: 1px solid #ddd;
-            cursor: pointer;
-            position: absolute;
-            bottom: 25px;
-            left: 0;
-            right: 0;
-            margin-left: auto;
-            margin-right: auto;
+            border-radius: 25px;
+            padding: 23px;
             .box{
                 background-color: #fff;
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                border-radius: 10px;
+                transition: all 0.2s ease-in-out;
+                border: 1px solid #ddd;
+                cursor: pointer;
+            }
+            
+            .box:hover{
+                transform: scale(1.02) !important
             }
         }
-    }
+
+        .board:hover > .box {
+            transform: scale(0.95);
+        }
+    
 }
