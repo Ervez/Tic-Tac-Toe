@@ -19,6 +19,8 @@ $(function(){
         element.addEventListener('click', pick);
     });
 
+    //$('#myModal').modal('show');
+    $('.modal-body').html(" <input type='email' id='defaultForm-email'</input> </br> <input type='email' id='defaultForm-email'</input> </br>");
     function pick(event){
         const {row, column} = event.target.dataset;
         const turn = round % 2 === 0 ? P2 : P1;
