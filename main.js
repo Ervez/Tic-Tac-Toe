@@ -22,7 +22,10 @@ $(function(){
     function pick(event){
         const {row, column} = event.target.dataset;
         const turn = round % 2 === 0 ? P2 : P1;
-        if(board[row][column] !== '') return;
+        if(board[row][column] !== '') {
+            shakeElement(event.target);
+            return;
+        }
         if (turn == P1) $('.currentPlayerInfo').text('PLAYER 2 TURN');
         if (turn == P2) $('.currentPlayerInfo').text('PLAYER 1 TURN');
         event.target.classList.add(turn);
@@ -82,4 +85,11 @@ $(function(){
 
         return winner;
     }
+
+    function shakeElement(element){
+        $(element).addClass('shake');
+        setTimeout(function(){
+            $(element).removeClass('shake');
+        },1000);
+    };
 })
