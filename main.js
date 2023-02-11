@@ -4,7 +4,7 @@ $(function(){
     P2 = 'fa-times';
     let round = 1;
 
-    const board = [
+    let board = [
         ['', '', ''],
         ['', '', ''],
         ['', '', '']
@@ -27,12 +27,34 @@ $(function(){
         board[row][column] = turn;
         round++;
 
-        console.log(checkEnd());
         if(checkEnd() !== undefined){
             $('#myModal').modal('show');
             $('#myModalTitle').text(checkEnd() + ' is a WINNER!');
             $('.box').attr('class', 'box fa');
+            board = [
+                ['', '', ''],
+                ['', '', ''],
+                ['', '', '']
+            ];
+
+            round = 1;
+            return;
+        } 
+
+        if(round === 10){
+            $('#myModal').modal('show');
+            $('#myModalTitle').text('DRAW!');
+            $('.box').attr('class', 'box fa');
+            board = [
+                ['', '', ''],
+                ['', '', ''],
+                ['', '', '']
+            ];
+
+            round = 1;
+            return;
         }
+        console.log(round);
     }
 
     function checkEnd(){
