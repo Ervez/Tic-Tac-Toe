@@ -2,19 +2,33 @@
     margin: 0;
     box-sizing: border-box;
     padding: 0;
-    font-family: 'Montserrat', sans-serif;
 }
-
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap');
+@mobile:    ~"only screen and (min-width: 320px) and (max-width: 786px)";
 body{
-    display: flex;
+    display: grid;
     align-items: center;
     justify-content: center;
     height: 100vh;
     font-family: sans-serif;
     background-color: #fff;
+    h1, h2{
+        cursor: default;
+    }
+    .boardContainer{
+        text-align: center;
+        font-family: 'Amatic SC';
+        h1{
+            font-size: 50px;
+        }
+        h2{
+            font-size: 30px;
+        }
+        
+
         .board{
             width: 350px;
-            background-color: 		#eeeeee;
+            background-color: #eeeeee;
             grid-template-columns: repeat(3, 1fr);
             grid-template-rows: repeat(3, 100px);
             display: grid;
@@ -34,12 +48,37 @@ body{
             }
                      
             .box:hover{
-                transform: scale(1.02) !important
+                transform: scale(1.02) !important;
             }
         }
 
         .board:hover > .box {
             transform: scale(0.95);
         }
+    }
     
+}
+
+@media @mobile{
+    body{
+        .boardContainer{
+            h1{
+                font-size: 50px;
+            }
+            h2{
+                font-size: 30px;
+            }
+            .board{
+                width: 250px;
+                grid-template-rows: repeat(3, 70px);                       
+                .box:hover{
+                    transform: none !important;
+                }
+            }
+            .board:hover > .box {
+                transform:  none;
+            }
+        }
+        
+    }
 }

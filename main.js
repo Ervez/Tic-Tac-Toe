@@ -23,6 +23,8 @@ $(function(){
         const {row, column} = event.target.dataset;
         const turn = round % 2 === 0 ? P2 : P1;
         if(board[row][column] !== '') return;
+        if (turn == P1) $('.currentPlayerInfo').text('PLAYER 2 TURN');
+        if (turn == P2) $('.currentPlayerInfo').text('PLAYER 1 TURN');
         event.target.classList.add(turn);
         board[row][column] = turn;
         round++;
@@ -30,7 +32,9 @@ $(function(){
         if(checkEnd() !== undefined){
             $('#myModal').modal('show');
             $('#myModalTitle').text(checkEnd() + ' is a WINNER!');
+            $('.modal-body').html("<p> Click 'Ok' to reset board </p>");
             $('.box').attr('class', 'box fa');
+            $('.currentPlayerInfo').text('PLAYER 1 TURN');
             board = [
                 ['', '', ''],
                 ['', '', ''],
@@ -44,7 +48,9 @@ $(function(){
         if(round === 10){
             $('#myModal').modal('show');
             $('#myModalTitle').text('DRAW!');
+            $('.modal-body').html("<p> Click 'Ok' to reset board </p>");
             $('.box').attr('class', 'box fa');
+            $('.currentPlayerInfo').text('PLAYER 1 TURN');
             board = [
                 ['', '', ''],
                 ['', '', ''],
@@ -54,7 +60,6 @@ $(function(){
             round = 1;
             return;
         }
-        console.log(round);
     }
 
     function checkEnd(){
