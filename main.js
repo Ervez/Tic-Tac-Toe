@@ -23,6 +23,7 @@ $(function(){
         const {row, column} = event.target.dataset;
         const turn = round % 2 === 0 ? P2 : P1;
         if(board[row][column] !== '') {
+            shakeElement(event.target);
             return;
         }
         if (turn == P1) $('.currentPlayerInfo').text('PLAYER 2 TURN');
@@ -84,4 +85,11 @@ $(function(){
 
         return winner;
     }
+
+    function shakeElement(element){
+        $(element).addClass('shake');
+        setTimeout(function(){
+            $(element).removeClass('shake');
+        },1000);
+    };
 })

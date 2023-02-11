@@ -47,10 +47,27 @@ body{
                 border: 1px solid #ddd;
                 cursor: pointer;
             }
-                     
-            .box:hover{
-                transform: scale(1.02) !important;
+
+            .shake {
+                border: 1px solid #ED4337;
+                animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
             }
+            
+            @keyframes shake {
+                10%, 90% {
+                    transform: translateX(-1px);
+                }
+                20%, 80% {
+                    transform: translateX(2px);
+                }
+                30%, 50%, 70% {
+                    transform: translateX(-4px);
+                }
+                40%, 60% {
+                    transform: translateX(4px);
+                }
+            }
+                     
         }
 
         .board:hover > .box {
@@ -72,9 +89,6 @@ body{
             .board{
                 width: 250px;
                 grid-template-rows: repeat(3, 70px);                       
-                .box:hover{
-                    transform: none !important;
-                }
             }
             .board:hover > .box {
                 transform:  none;
